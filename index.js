@@ -147,10 +147,8 @@ app.put("/api/users", (req, res) => {
   );
 });
 
-conn.connect(err => {
-  if(err) console.error("Erreur BDD:", err);
-  else console.log("Connecté à MySQL !");
-});
+
+
 
 // 🔹 API pour récupérer les formations
 app.get("/api/formations", (req, res) => {
