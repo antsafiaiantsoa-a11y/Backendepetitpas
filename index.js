@@ -158,6 +158,18 @@ app.get("/api/formations", (req, res) => {
   });
 });
 
+// LOGOUT
+app.post("/logout", (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      return res.status(500).json({ message: "Erreur lors de la déconnexion" });
+    }
+
+    res.clearCookie("sid"); // nom du cookie session
+    res.json({ message: "Déconnexion réussie" });
+  });
+});
+
 
 app.listen(port, () => {
   console.log(`🚀 Serveur API lancé sur http://localhost:${port}`);
