@@ -24,11 +24,16 @@ app.use(session({
 }));
 
 const conn = mysql.createConnection({
-  host: "localhost",
+  host: "mysql.railway.internal",
   user: "root",
-  password: "root",
-  database: "epetitpas"
+  password: "VrBjHxhVjBJajLRLBgaVyOXzjfStUEOW",
+  database: "railway",
+  
+  port: 3306,                          // <- MYSQLPORT
+  ssl: { rejectUnauthorized: false }   // <- OBLIGATOIRE pour Railway
 });
+
+
 
 conn.connect((err) => {
   if (err) {
