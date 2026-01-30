@@ -23,14 +23,12 @@ app.use(session({
   cookie: { secure: false, sameSite: "lax" }
 }));
 
-const conn = mysql.createConnection({
-  host: "mysql.railway.internal",
-  user: "root",
-  password: "VrBjHxhVjBJajLRLBgaVyOXzjfStUEOW",
-  database: "railway",
-  
-  port: 3306,                          // <- MYSQLPORT
-  ssl: { rejectUnauthorized: false }   // <- OBLIGATOIRE pour Railway
+const db = mysql.createPool({
+  host: process.env.MYSQLHOST,
+  user: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQLDATABASE,
+  port: process.env.MYSQLPORT
 });
 
 
