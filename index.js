@@ -23,7 +23,7 @@ app.use(session({
   cookie: { secure: false, sameSite: "lax" }
 }));
 
-const db = mysql.createPool({
+const conn = mysql.createPool({
   host: process.env.MYSQLHOST,
   user: process.env.MYSQLUSER,
   password: process.env.MYSQLPASSWORD,
