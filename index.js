@@ -30,10 +30,7 @@ const db = mysql.createPool({
   database: process.env.MYSQLDATABASE,
   port: process.env.MYSQLPORT
 });
-
-
-
-conn.connect((err) => {
+conn.getConnection((err) => {
   if (err) {
     console.error("Erreur de connexion à la BDD :", err.message);
   } else {
